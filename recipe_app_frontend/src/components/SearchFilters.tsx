@@ -9,7 +9,8 @@ export type Filters = {
 
 type Props = {
   value: Filters;
-  onChange: (/* value */ Filters) => void;
+  // Avoid naming the parameter to satisfy no-unused-vars in type declarations
+  onChange: ((_: Filters) => void);
   onApply?: () => void;
   onReset?: () => void;
 };

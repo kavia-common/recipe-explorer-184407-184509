@@ -44,7 +44,7 @@ Create a .env (not committed) or pass via your hosting platform.
 - src/components/SearchFilters.tsx — Search input and filter controls.
 - src/routes/index.tsx — Home route (grid and modal detail).
 - src/routes/RecipeDetail.tsx — Standalone detail page (optional).
-- src/lib/theme.css — Ocean Professional theme styles.
+- src/lib/theme.css — Ocean Professional theme styles (global CSS imported in src/main.tsx).
 
 ## Accessibility & Design
 

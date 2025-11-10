@@ -5,7 +5,8 @@ import type { Recipe } from "../lib/api/recipes";
 
 type Props = {
   recipe: Recipe;
-  onOpen?: (/* id */ string) => void;
+  // Callback receives the recipe id; type without naming the parameter to avoid no-unused-vars lint
+  onOpen?: ((_: string) => void) | undefined;
 };
 
 /**
@@ -18,8 +19,8 @@ export function RecipeCard({ recipe, onOpen }: Props) {
       className="recipe-card"
       role="button"
       tabIndex={0}
-      onClick={() => onOpen?.(recipe.id)}
-      onKeyDown={(_e: React.KeyboardEvent) => { if (_e.key === "Enter") onOpen?.(recipe.id); }}
+      onClick={() => onOpen && onOpen(recipe.id)}
+      onKeyDown={(e: React.KeyboardEvent) => { if (e.key === "Enter") onOpen && onOpen(recipe.id); }}
     >
       <div style={{ overflow: "hidden", borderTopLeftRadius: 12, borderTopRightRadius: 12 }}>
         {recipe.image ? (
